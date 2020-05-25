@@ -1,20 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-searchbar type="text" placeholder="Artiste" [(ngModel)]="nom"  (keyup.enter)="ListArtists(this.nom)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card *ngFor="let artist of artists.data" (click)="ListAlbums(artist.tracklist)">
+    <img src="{{artist.picture_big}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ artist.name }}
+        </ion-card-title>
+      <p>
+        {{ artist.nb_album }} Albums.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

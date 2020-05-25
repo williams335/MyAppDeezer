@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste albums</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let albs of albums.data" (click)="ListTrack(albs.album.tracklist, albs.album.cover_big, albs.album.title )" >
+    <img src="{{albs.album.cover_big}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ albs.album.title }}
+        </ion-card-title>
+    
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

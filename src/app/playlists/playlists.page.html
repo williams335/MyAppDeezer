@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="buttonback()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Playlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <img src="{{cover_big}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ title1 }}
+        </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card *ngFor="let list of playlists.data" (click)="play(list.preview)">
+    
+    <ion-card-content>
+      <ion-card-title class="logo">
+       <img src="../../assets/images/iconmusic.png" style="width: 30px;padding-right: 5px;
+       left: -5px;height: 30px;"/>{{ list.title }}
+        </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
